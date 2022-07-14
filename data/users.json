@@ -1,7 +1,41 @@
 {
-  "name": "Ganesh",
-  "last_name": "Roman"
-  "json_url": "https://raw.githubusercontent.com/ganeshroman/ganeshroman.github.io/main/data/users.json"
+	"full_name": "Ganesh V Roman",
+	"first_name": "Ganesh",
+	"last_name": "Roman",
+	"email_id": "ganesh.roman.edu@gmail.com",
+	"mobile": "+91 8055 858635",
+	"short_bio": "I am Sr Software Engineer, having 7+ years of experience in IT Industry. I have completed MCA from Government College of Engineering. I want to made avail solutions to human beings and experience in IT industry.",
+	"social_links":[
+		{
+		"website":"http://ganeshroman.github.com"
+		},
+		{
+		"facebook":""
+		},
+		
+		{
+		"linked_in":""
+		},
+		
+		{
+		"twitter":""
+		},
+		
+		{
+		"website":""
+		},
+		
+		{
+		"website":""
+		}
+		
+		]
+	
+	"Technology": "Android",
+	
+	
+	
+	"json_url": "https://raw.githubusercontent.com/ganeshroman/ganeshroman.github.io/main/data/users.json"
 }
 
  
