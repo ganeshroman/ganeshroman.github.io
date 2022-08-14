@@ -49,13 +49,9 @@ Android Build Flavour Configuration Tutorial maintained by Ganesh.
 ## Android Common Issues
 Duration: 0:05:00
 
-### Comming Soon
 
-
-
-
-#### [Issue 1](https://ganeshroman.github.io/)
-Here you will have description.
+#### [Android Common Issue ](https://github.com/ganeshroman/android-issues-solve)
+Android common issue and solutions.
 
 
 
@@ -70,13 +66,9 @@ Here you will have description.
 Duration: 0:05:00
 
 
-### Comming Soon
 
-
-
-
-#### [Repository 1](https://ganeshroman.github.io/)
-Here you will have description.
+#### [Onboarding Repository](https://github.com/ganeshroman/Onboarding)
+This will be onboarding page with viewpager.
 
 
 
@@ -86,21 +78,17 @@ Here you will have description.
 ## Tools used in Development
 Duration: 0:05:00
 
-### Comming Soon
+
+#### [Java - JDK ](https://www.oracle.com/java/technologies/downloads/)
+Java language is usefull to write the android programms (apps).
 
 
+#### [Kotlin](https://kotlinlang.org/)
+Kotlin language is usefull to write the android programms (apps).
 
 
-#### [Tool 1](https://ganeshroman.github.io/)
-Here you will have description.
-
-
-#### [Tool 2](https://ganeshroman.github.io/)
-Here you will have description.
-
-
-#### [Tool 3](https://ganeshroman.github.io/)
-Here you will have description.
+#### [Android Studio](https://developer.android.com/studio)
+Android Studio is IDE used for Android Development.
 
 
 
@@ -112,22 +100,28 @@ Here you will have description.
 ## Reference Links, Blogs
 Duration: 0:05:00
 
-### Comming Soon
 
-
-
-
-
-#### [Reference 1](https://ganeshroman.github.io/)
+#### [Android Official](https://developer.android.com/)
 Here you will have description.
 
 
-#### [Reference 2](https://ganeshroman.github.io/)
-Here you will have description.
+#### [Android Developers Blog](https://www.androiddeveloper.co.in/blog/)
+Here you will find latest blogs of Android.
 
 
-#### [Reference 3](https://ganeshroman.github.io/)
-Here you will have description.
+#### [Android Developers Google Blog](https://android-developers.googleblog.com/)
+Here you will find latest blogs of Android.
+
+
+#### [Android Developers mindorks Blog](https://blog.mindorks.com/blogs/android)
+Here you will find latest blogs of Android.
+
+
+#### [Android Developers AndroidPub News Blog](https://medium.com/android-news)
+Here you will find latest news of Android.
+
+#### [Android Codelab](https://codelabs.developers.google.com/?product=android)
+Codelab by experts on Google Codelab.
 
 
 
