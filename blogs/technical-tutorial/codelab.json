@@ -1,0 +1,30 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-08-14T20:20:33+05:30",
+  "id": "technical-tutorial",
+  "duration": 28,
+  "title": "Technical Tutorials, Codelab by Ganesh Roman",
+  "summary": "Technical Tutorials, Codelab by Ganesh Roman",
+  "source": "code_lab_landing_page.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "android",
+    "java",
+    "kotlin",
+    "codelabs"
+  ],
+  "tags": [
+    "home",
+    "index",
+    "landing",
+    "web"
+  ],
+  "feedback": "https://ganeshroman.github.io/",
+  "url": "technical-tutorial"
+}
