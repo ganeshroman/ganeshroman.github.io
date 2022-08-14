@@ -71,6 +71,13 @@ This will show images in your page.
 	### Embed an iframe
 		![https://codepen.io/ganeshroman/embed/aaghetvzx](https://en.wikipedia.org/wiki/File:Example.jpg "Try Me Publisher")
 
+	```
+	<table>
+	<tr> <th> Title </th><th> Description </th></tr>
+	<tr> <th> Topic </th><th> details </th></tr>
+	</table>
+	```
+
 ## Section 4
 Duration: 0:02:00
 

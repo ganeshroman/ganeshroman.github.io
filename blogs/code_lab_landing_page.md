@@ -25,12 +25,14 @@ Duration: 0:03:00
 </ul>
 
 
+
+
 ## Android Blogs 
 Duration: 0:05:00
 
 
-#### [First Tutorial](http://ganeshroman.github.io/blogs/1/codelab-4-codelab/index.html)
-Here you will have description.
+#### [Android JUnit Testing](http://ganeshroman.github.io/blogs/2/android-j-unit-testing/index.html#0)
+Here you will understand JUnit Test Cases & Syntax maintained by Ganesh.
 
 
 #### [Second Tutorial](https://ganeshroman.github.io/)
