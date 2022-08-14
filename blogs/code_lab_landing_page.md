@@ -29,7 +29,7 @@ Duration: 0:03:00
 Duration: 0:05:00
 
 
-#### [First Tutorial](1/codelab-4-codelab/index.html)
+#### [First Tutorial](http://ganeshroman.github.io/blogs/1/codelab-4-codelab/index.html)
 Here you will have description.
 
 
