@@ -1,0 +1,186 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Android Build Flavours by Ganesh V Roman</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="android-build-flavours"
+                  title="Android Build Flavours by Ganesh V Roman"
+                  environment="web"
+                  feedback-link="https://ganeshroman.github.io/">
+    
+      <google-codelab-step label="Summary" duration="3">
+        <ul>
+<li> <strong>Publisher:</strong>  Ganesh V Roman  </li>
+<li> <strong>Technology:</strong>  Android, Kotlin  </li>
+<li> <strong>Summary:</strong>  Android Build Flavour Configuration Tutorial maintained by Ganesh. </li>
+<li> <strong>Webpage:  </strong><a href="http://ganeshroman.github.io" target="_blank">http://ganeshroman.github.io</a></li>
+<li> <strong>Created Date:</strong> 15 August 2022 </li>
+<li> <strong>Last modified:</strong> 15 August 2022  </li>
+<li> <strong>Copyright:</strong> © Ganesh V Roman  </li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Build Flavours" duration="7">
+        <h2 is-upgraded>Introduction </h2>
+<p>While developing an Android application, we generally need various types of APKs or you can say different versions of APK during the development and release phase. For example, you may need one debug APK without having proguard or one debug APK with proguard or you may need one APK for your free users and one APK for your paid users or you may need one APK for Android version 6 and above and one APK for Android version below 6 and there are many other possibilities. But the question is, how you are going to create these many versions of your App. Are you going to have different projects for these versions or just one project is enough? Because the code is going to remain almost the same and just some APIs or some build configurations are going to change? So, how to achieve this? This can be achieved by using Build Variants i.e. the topic of this blog.    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Build Types and Build Variants" duration="0">
+        <h2 is-upgraded>Define </h2>
+<p>While building any Android application, <strong><em>we create various build types such as &#34;debug&#34; and &#34;release&#34;</em></strong>. At the same time, <strong><em>we can create various product flavors for the same app</em></strong>, for example, the free product flavor for free users and the paid product flavor for the paid users. So, Android Studio provides a feature of Build Variants which can be thought of as a cartesian product of all your build types and all your product flavors.  All you need to do is add various build types in your module-level build.gradle file and during development or production, you can simply choose the Build Variant you want to test or release.  <strong><em>NOTE:</em></strong> By default, the Android Studio will generate &#34;debug&#34; and &#34;release&#34; Build Types for your project.   &#34;`   </p>
+<pre><code>android {
+	...
+		defaultConfig {...}
+		buildTypes {
+		debug{...}
+		release{...}
+	}
+
+	flavorDimensions &#34;version&#34;
+	productFlavors {
+		uat {
+			dimension &#34;version&#34;
+			versionNameSuffix &#34;.uat&#34;
+		}
+    production {
+        dimension &#34;version&#34;
+        versionNameSuffix &#34;.prod&#34;
+		}
+	}
+}
+</code></pre>
+<p> &#34;`  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Abi filters" duration="4">
+        <h2 is-upgraded>Example </h2>
+<p>  &#34;`  </p>
+<pre><code>android {
+	compileSdkVersion 30
+	defaultConfig {
+		applicationId &#34;com.example.abichecking&#34;
+		minSdkVersion 15
+		targetSdkVersion 30
+		versionCode 1
+		versionName &#34;1.0&#34;
+		testInstrumentationRunner &#34;android.support.test.runner.AndroidJUnitRunner&#34;
+	}
+		buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;
+		}
+	}
+	
+	flavorDimensions &#34;version&#34;
+	productFlavors {
+		fat {
+			ndk {
+				abiFilters &#34;armeabi&#34;, &#34;armeabi-v7a&#34;, &#34;x86&#34;, &#34;mips&#34;, &#34;x86_64&#34;, &#34;arm64-v8a&#34;
+			}
+		}
+		
+		armeabi {
+			ndk {
+				abiFilter &#34;armeabi&#34;
+			}
+		}
+		
+		armeabi_v7a {
+			ndk {
+				abiFilter &#34;armeabi-v7a&#34;
+			}
+		}
+		
+		x86 {
+			ndk {
+				abiFilter &#34;x86&#34;
+			}
+		}
+		
+		mips {
+			ndk {
+				abiFilter &#34;mips&#34;
+			}
+		}
+		
+		x86_64 {
+			ndk {
+				abiFilter &#34;x86_64&#34;
+			}
+		}
+		
+		arm64_v8a {
+			ndk {
+				abiFilter &#34;arm64-v8a&#34;
+			}
+		}
+	}
+}
+</code></pre>
+<p>  &#34;`   </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Build Variables" duration="4">
+        <h2 is-upgraded>Examples </h2>
+<p><strong><em>PROJECT-&gt; gradle.properties</em></strong>  &#34;` </p>
+<pre><code>tempVersion = &#39;1.0.1&#39;
+</code></pre>
+<p><code><br><br><br>***PROJECT-> build.gradle***</code><br><br>  </p>
+<pre><code>ext {
+	testVersion = &#39;1.0.3&#39;
+}
+</code></pre>
+<pre><code>buildTypes {
+	debug {
+		buildConfigField &#34;String&#34;, &#34;TEMP_VERSION&#34;, tempVersion
+	}
+</code></pre>
+<p> OR  </p>
+<pre><code>buildTypes {
+	debug {
+		buildConfigField &#34;String&#34;, &#34;TEMP_VERSION&#34;, &#34;$tempVersion&#34;
+	}
+</code></pre>
+<p> &#34;`                     </p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

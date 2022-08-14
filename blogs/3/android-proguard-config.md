@@ -1,7 +1,7 @@
-author: Ganesh Roman
+author: Ganesh V Roman
 summary: Android Proguard Congiguration Tutorial by Ganesh V Roman
 id: android-proguard-config
-tags: test, JUnit, jUnit
+tags: gradle, configuration, proguard, dexguard
 categories: Android, Java, Kotlin, Codelabs
 environments: Web
 status: Published

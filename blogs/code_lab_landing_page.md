@@ -39,8 +39,8 @@ Here you will understand JUnit Test Cases & Syntax maintained by Ganesh.
 Android Proguard Congiguration Tutorial maintained by Ganesh.
 
 
-#### [Third Tutorial](https://ganeshroman.github.io/)
-Here you will have description.
+#### [Android Build Flavours](http://ganeshroman.github.io/blogs/4/android-build-flavours/index.html#0)
+Android Build Flavour Configuration Tutorial maintained by Ganesh.
 
 
 

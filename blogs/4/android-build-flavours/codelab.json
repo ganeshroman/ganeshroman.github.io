@@ -1,0 +1,31 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-08-15T00:13:15+05:30",
+  "id": "android-build-flavours",
+  "duration": 18,
+  "title": "Android Build Flavours by Ganesh V Roman",
+  "summary": "Android Build Flavour Configuration Tutorial by Ganesh V Roman",
+  "source": "android-build-flavours.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "android",
+    "java",
+    "kotlin",
+    "codelabs"
+  ],
+  "tags": [
+    "build",
+    "build flavors",
+    "flavors",
+    "gradle",
+    "web"
+  ],
+  "feedback": "https://ganeshroman.github.io/",
+  "url": "android-build-flavours"
+}

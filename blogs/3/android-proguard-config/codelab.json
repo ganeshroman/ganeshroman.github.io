@@ -3,7 +3,7 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-08-14T23:28:19+05:30",
+  "updated": "2022-08-15T00:17:39+05:30",
   "id": "android-proguard-config",
   "duration": 36,
   "title": "Android Proguard by Ganesh V Roman",
@@ -20,8 +20,10 @@
     "codelabs"
   ],
   "tags": [
-    "junit",
-    "test",
+    "configuration",
+    "dexguard",
+    "gradle",
+    "proguard",
     "web"
   ],
   "feedback": "https://ganeshroman.github.io/",
