@@ -1,0 +1,172 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Android Proguard by Ganesh V Roman</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="android-proguard-config"
+                  title="Android Proguard by Ganesh V Roman"
+                  environment="web"
+                  feedback-link="https://ganeshroman.github.io/">
+    
+      <google-codelab-step label="Summary" duration="3">
+        <ul>
+<li> <strong>Publisher:</strong>  Ganesh V Roman  </li>
+<li> <strong>Technology:</strong>  Android, Kotlin  </li>
+<li> <strong>Summary:</strong>  Android Proguard Congiguration Tutorial maintained by Ganesh. </li>
+<li> <strong>Webpage:  </strong><a href="http://ganeshroman.github.io" target="_blank">http://ganeshroman.github.io</a></li>
+<li> <strong>Created Date:</strong> 15 August 2022 </li>
+<li> <strong>Last modified:</strong> 15 August 2022  </li>
+<li> <strong>Copyright:</strong> © Ganesh V Roman  </li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Technical Terminology" duration="4">
+        <h2 is-upgraded>Shrink </h2>
+<p> Detects and safely <strong><em>removes unused classes, fields, methods, and attributes from your app</em></strong> and its library dependencies (making it a valuable tool for working around the 64k reference limit). For example, if you use only a few APIs of a library dependency, shrinking can identify library code that your app is not using and remove only that code from your app.  <strong><em>Resource Shrinking</em></strong> Removes unused resources from your packaged app, including unused resources in your app&#39;s library dependencies. It works in conjunction with code shrinking such that once unused code has been removed, any resources no longer referenced can be safely removed as well.   </p>
+<h2 is-upgraded>Obfuscation  </h2>
+<p>Shortens the name of classes and members, which results in reduced DEX file sizes.   </p>
+<h2 is-upgraded>Optimization </h2>
+<p>Inspects and rewrites your code to further reduce the size of your app&#39;s DEX files. For example, if R8 detects that the else {} branch for a given if/else statement is never taken, R8 removes the code for the else {} branch.   &#34;`  </p>
+<pre><code>android {
+	buildTypes {
+		release {
+        
+			minifyEnabled true               // Enables code shrinking, obfuscation, and optimization for only your project&#39;s release build type
+			shrinkResources true               // Enables resource shrinking, which is performed by the Android Gradle plugin.
+        
+			proguardFiles getDefaultProguardFile(
+					&#39;proguard-android-optimize.txt&#39;),
+					&#39;proguard-rules.pro&#39;              // Includes the default ProGuard rules files with optimization
+			}
+		}
+		...
+	}
+</code></pre>
+<p> &#34;`  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Proguard" duration="5">
+        <h2 is-upgraded>1. Data Classes, Serialized Classes </h2>
+<p> Probably every app has some kind of data class (also known as DMOs, models, etc. depending on context and where they sit in your app&#39;s architecture). The thing about data objects is that usually at some point they will be loaded or saved (serialized) into some other medium, such as network (an HTTP request), a database (through an ORM), a JSON file on disk or in a Firebase data store.  Many of the tools that simplify serializing and deserializing these fields rely on reflection. GSON, Retrofit, Firebase — they all inspect field names in data classes and <strong><em>turn them into another representation</em></strong> (<code>for example- {"name": "Sue", "age": 28}</code>), either for transport or storage.  <strong><em>Conclusion- We cannot let ProGuard rename or remove any fields on these data classes</em></strong>, as they have to match the serialized format. It&#39;s a safe bet to add a <code>@Keep</code> annotation on the whole class or a wildcard rule on all your models-  <code>-keep class com.example.data.api.service.model.** { *; }</code>   &#34;` </p>
+<pre><code>	@Keep
+	data class User(val id: String = &#34;&#34;)
+</code></pre>
+<p><code><br><br>for Keeping Class Members<br><br></code></p>
+<pre><code>	-keepclassmembers class com.mindorks.sample.User{
+		public *;
+	}
+</code></pre>
+<p>&#34;`  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Java code called from native side (JNI)" duration="3">
+        <h2 is-upgraded>JNI </h2>
+<p>Androids default ProGuard files ( you should always include them, they have some really useful rules )  already contain a rule for methods that are implemented on the native side   </p>
+<pre><code>`(-keepclasseswithmembernames class * { native &lt;methods&gt;; })`
+</code></pre>
+<p><strong><em>Conclusion-</em></strong> Because ProGuard can only inspect Java classes, it will not know about any usages that happen in <strong><em>native code. We must explicitly retain</em></strong> such usages of classes and members via a <code>@Keep</code> annotation or <code>-keep</code> rule.   </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Opening resources from JAR/APK" duration="3">
+        <h2 is-upgraded>Resources </h2>
+<p> The problem is that usually these classes will look for resources under their own package name (which translates to a file path in the JAR or APK). ProGuard can rename package names when obfuscating, so after compilation <strong><em>it might happen that the class and its resource file are no longer in the same package in the final APK.</em></strong>  To identify loading resources in this way, you can look for calls to <code>Class.getResourceAsStream / getResource and ClassLoader.getResourceAsStream / getResource</code> in your code and in any third party libraries you depend on.  <code>-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase</code>   </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Investigation Rules of Third party Libraries" duration="3">
+        <h2 is-upgraded>Libraries (included/imported) </h2>
+<p>Some library authors supply recommended ProGuard rules.  So how to come up with <strong><em>rules when the library doesn&#39;t supply</em></strong> them?  1 Read the build output and logcat. 2 Build warnings will tell you which <code>-dontwarn</code> rules to add 3 <code>ClassNotFoundException</code>, <code>MethodNotFoundException</code> and <code>FieldNotFoundException</code> will tell you which <code>-keep</code> rules to add  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Debugging and stack traces" duration="3">
+        <h2 is-upgraded>Switch on Messages and Debug </h2>
+<p>Some of those are actually useful to the developer — for example, you might want to retain source file names and line numbers for stack traces to make debugging easier-  <br><code>-keepattributes SourceFile, LineNumberTable</code><br>  If you are going to attach a debugger to step through method code in a ProGuarded build of your app, you should also keep the following attributes to retain some debug information about local variables (you only need this line in your debug build type)-  <br><code>-keepattributes LocalVariableTable, LocalVariableTypeTable</code><br>   </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Runtime annotations, type introspection" duration="3">
+        <h2 is-upgraded>Annotations </h2>
+<p>For some libraries that&#39;s not a problem — those that process annotations and generate code at compile time (such as Dagger 2 or Glide and many more) might not need these annotations later on when the program runs.   <code>-keepattributes *Annotation*, Signature, Exception</code>      </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Moving everything to the default package" duration="3">
+        <h2 is-upgraded>Reducing path </h2>
+<p>The -repackageclasses option is not added by default in the ProGuard config. If you are already obfuscating your code and have fixed any problems with proper keep rules, you can add this option to further reduce DEX size. It works by moving all classes to the default (root) package, essentially freeing up the space taken up by strings like <strong><em>&#34;com.example.myapp.somepackage&#34;.   </em></strong><code>-repackageclasses</code>    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Minified debug build type" duration="3">
+        <h2 is-upgraded>Minified </h2>
+<p>In order to fully test and debug any ProGuard problems, it&#39;s good to set up a separate, minified debug build like this-  &#34;` </p>
+<pre><code>buildTypes {
+	debugMini {
+		initWith debug
+		minifyEnabled true
+		shrinkResources true
+		proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), 
+				&#39;proguard-rules.pro&#39;
+		matchingFallbacks = [&#39;debug&#39;]
+		}
+	}
+</code></pre>
+<p> &#34;`  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="ProGuard optimizations" duration="3">
+        <h2 is-upgraded>Optimization </h2>
+<p>As I mentioned before, ProGuard can do 3 things for you:  </p>
+<ol type="1">
+<li>It gets rid of unused code, </li>
+<li>Renames identifiers to make the code smaller, </li>
+<li>Performs whole program optimizations.   <br><code>release {<br>	minifyEnabled true<br>	proguardFiles <br>	getDefaultProguardFile('proguard-android-optimize.txt'),<br>				'proguard-rules.pro'<br>	}</code><br>                 </li>
+</ol>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

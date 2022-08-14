@@ -1,0 +1,29 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-08-14T23:28:19+05:30",
+  "id": "android-proguard-config",
+  "duration": 36,
+  "title": "Android Proguard by Ganesh V Roman",
+  "summary": "Android Proguard Congiguration Tutorial by Ganesh V Roman",
+  "source": "android-proguard-config.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "android",
+    "java",
+    "kotlin",
+    "codelabs"
+  ],
+  "tags": [
+    "junit",
+    "test",
+    "web"
+  ],
+  "feedback": "https://ganeshroman.github.io/",
+  "url": "android-proguard-config"
+}

@@ -35,8 +35,8 @@ Duration: 0:05:00
 Here you will understand JUnit Test Cases & Syntax maintained by Ganesh.
 
 
-#### [Second Tutorial](https://ganeshroman.github.io/)
-Here you will have description.
+#### [Android Proguard Configuration](http://ganeshroman.github.io/blogs/3/android-proguard-config/index.html#0)
+Android Proguard Congiguration Tutorial maintained by Ganesh.
 
 
 #### [Third Tutorial](https://ganeshroman.github.io/)
