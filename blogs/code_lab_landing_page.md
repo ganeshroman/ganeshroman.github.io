@@ -49,16 +49,15 @@ Here you will have description.
 ## Android Common Issues
 Duration: 0:05:00
 
-#### [First Tutorial](https://ganeshroman.github.io/)
+### Comming Soon
+
+
+
+
+#### [Issue 1](https://ganeshroman.github.io/)
 Here you will have description.
 
 
-#### [Second Tutorial](https://ganeshroman.github.io/)
-Here you will have description.
-
-
-#### [Third Tutorial](https://ganeshroman.github.io/)
-Here you will have description.
 
 
 
@@ -71,17 +70,13 @@ Here you will have description.
 Duration: 0:05:00
 
 
-#### [First Tutorial](https://ganeshroman.github.io/)
+### Comming Soon
+
+
+
+
+#### [Repository 1](https://ganeshroman.github.io/)
 Here you will have description.
-
-
-#### [Second Tutorial](https://ganeshroman.github.io/)
-Here you will have description.
-
-
-#### [Third Tutorial](https://ganeshroman.github.io/)
-Here you will have description.
-
 
 
 
@@ -91,15 +86,20 @@ Here you will have description.
 ## Tools used in Development
 Duration: 0:05:00
 
-#### [First Tutorial](https://ganeshroman.github.io/)
+### Comming Soon
+
+
+
+
+#### [Tool 1](https://ganeshroman.github.io/)
 Here you will have description.
 
 
-#### [Second Tutorial](https://ganeshroman.github.io/)
+#### [Tool 2](https://ganeshroman.github.io/)
 Here you will have description.
 
 
-#### [Third Tutorial](https://ganeshroman.github.io/)
+#### [Tool 3](https://ganeshroman.github.io/)
 Here you will have description.
 
 
@@ -112,15 +112,21 @@ Here you will have description.
 ## Reference Links, Blogs
 Duration: 0:05:00
 
-#### [First Tutorial](https://ganeshroman.github.io/)
+### Comming Soon
+
+
+
+
+
+#### [Reference 1](https://ganeshroman.github.io/)
 Here you will have description.
 
 
-#### [Second Tutorial](https://ganeshroman.github.io/)
+#### [Reference 2](https://ganeshroman.github.io/)
 Here you will have description.
 
 
-#### [Third Tutorial](https://ganeshroman.github.io/)
+#### [Reference 3](https://ganeshroman.github.io/)
 Here you will have description.
 
 
