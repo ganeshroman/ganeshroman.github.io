@@ -1,7 +1,7 @@
 author: Ganesh Roman
 summary: Technical Tutorials, Codelab by Ganesh Roman
 id: technical-tutorial
-tags: landing, home, index
+tags: landing, home, index, ganesh, roman
 categories: Android, Java, Kotlin, Codelabs
 environments: Web
 status: Published
@@ -102,7 +102,7 @@ Duration: 0:05:00
 
 
 #### [Android Official](https://developer.android.com/)
-Here you will have description.
+This is Android Developer official page.
 
 
 #### [Android Developers Blog](https://www.androiddeveloper.co.in/blog/)
