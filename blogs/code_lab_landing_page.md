@@ -7,7 +7,7 @@ environments: Web
 status: Published
 feedback link: https://ganeshroman.github.io/
 
-# Technical Tutorials, Codelab by Ganesh Roman
+# Technical Tutorials by Ganesh Roman
 
 
 ## Summary 
