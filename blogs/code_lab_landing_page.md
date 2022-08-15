@@ -120,8 +120,7 @@ Here you will find latest blogs of Android.
 #### [Android Developers AndroidPub News Blog](https://medium.com/android-news)
 Here you will find latest news of Android.
 
-#### [Android Codelab](https://codelabs.developers.google.com/?product=android)
-Codelab by experts on Google Codelab.
+
 
 
 
