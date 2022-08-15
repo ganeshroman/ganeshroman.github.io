@@ -1,5 +1,5 @@
 author: Ganesh Roman
-summary: Technical Tutorials, Codelab by Ganesh Roman
+summary: Technical Tutorials by Ganesh V Roman
 id: technical-tutorial
 tags: landing, home, index, ganesh, roman
 categories: Android, Java, Kotlin, Codelabs
