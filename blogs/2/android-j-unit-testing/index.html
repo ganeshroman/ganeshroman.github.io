@@ -41,7 +41,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="The purpose of Software Tests" duration="4">
+      <google-codelab-step label="Why Software Tests?" duration="4">
         <h2 is-upgraded>2.1. Software Tests? </h2>
 <p>A software test is a piece of software, which executes another piece of software. It validates if that code results in the expected state (state testing) or executes the expected sequence of events (behavior testing).  </p>
 <h2 is-upgraded>2.2. How Software Tests are useful? </h2>
@@ -64,17 +64,28 @@
 <h2 is-upgraded>3.5. Performance Tests </h2>
 <p>Performance tests are used to benchmark software components repeatedly. Their purpose is to ensure that the code under test runs fast enough even if it&#39;s under high load.  </p>
 <h2 is-upgraded>3.6. Behavior vs. State Testing </h2>
-<p>A test is a behavior test (also called interaction test) if it checks if certain methods were called with the correct input parameters. A behavior test does not validate the result of a method call.  State testing is about validating the result. Behavior testing is about testing the behavior of the application under test.  If you are testing algorithms or system functionality, in most cases you may want to test state and not interactions. A typical test setup uses mocks or stubs of related classes to abstract the interactions with these other classes away Afterwards you test the state or the behavior depending on your need.        </p>
+<p>A test is a behavior test (also called interaction test) if it checks if certain methods were called with the correct input parameters. A behavior test does not validate the result of a method call.  State testing is about validating the result. Behavior testing is about testing the behavior of the application under test.  If you are testing algorithms or system functionality, in most cases you may want to test state and not interactions. A typical test setup uses mocks or stubs of related classes to abstract the interactions with these other classes away Afterwards you test the state or the behavior depending on your need.    </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Automate UI Tests" duration="5">
+        <h2 is-upgraded>Define </h2>
+<p>Testing user interactions helps ensure users do not encounter unexpected results or have a poor experience when interacting with your app. You should get into the habit of creating user interface (UI) tests if you need to verify that the UI of your app is functioning correctly.   </p>
+<h2 is-upgraded>Instrumented UI Tests in Android Studio </h2>
+<p>To run instrumented UI tests using Android Studio, you implement your test code in a separate Android test folder  <code>src/androidTest/java</code>.   </p>
+<h3 is-upgraded>Jetpack Frameworks </h3>
+<p>Jetpack includes various frameworks that provide APIs for writing UI tests  <br><strong>Espresso Testing Framework</strong> Writing UI tests to simulate user interactions with Views within a single target app. A key benefit of using Espresso is that it provides automatic synchronization of test actions with the UI of the app you are testing. Espresso detects when the main thread is idle, so it is able to run your test commands at the appropriate time, improving the reliability of your tests.  <br><strong>Jetpack Compose</strong> To launch and interact with Compose screens and components. Interactions with Compose elements are synchronized with tests and have complete control over time, animations and recompositions.  <br><strong>UI Automator</strong> UI testing framework suitable for cross app functional UI testing across system and installed apps. The UI Automator APIs allows you to perform operations such as opening the Settings menu or the app launcher on a test device.  <br><strong>Roboelectric</strong> Lets you create local tests that run on your workstation or continuous integration environment in a regular JVM, instead of on an emulator or device. It can use Espresso or Compose testing APIs to interact with UI components.     </p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Using JUnit" duration="7">
-        <h2 is-upgraded>4.1. The JUnit framework </h2>
+        <h2 is-upgraded>5.1. The JUnit framework </h2>
 <p>JUnit in version 4.x is a test framework which uses annotations to identify methods that specify a test. The main websites for JUnit are the JUnit homepage (http://junit.org/) and the Github project page (https://github.com/junit-team/junit).  </p>
-<h2 is-upgraded>4.2. How to define a test in JUnit? </h2>
+<h2 is-upgraded>5.2. How to define a test in JUnit? </h2>
 <p>A JUnit test is a method contained in a class which is only used for testing. This is called a Test class. To write a JUnit 4 test with the you annotate a method with the @org.junit.Test annotation.  This method executes the code under test. You use an assert method, provided by JUnit or another assert framework, to check an expected result versus the actual result. These method calls are typically called asserts or assert statements.  You should provide meaningful messages in assert statements. That makes it easier for the user to identify and fix the problem. This is especially true if someone looks at the problem, who did not write the code under test or the test code.  </p>
-<h2 is-upgraded>4.3. Example JUnit test </h2>
+<h2 is-upgraded>5.3. Example JUnit test </h2>
 <p>The following code shows a JUnit test. This test assumes that the MyClass class exists and has a multiply(int, init) method.  &#34;`java import static org.junit.Assert.assertEquals;  import org.junit.Test;  public class MyTests {  </p>
 <pre><code>    @Test
     public void multiplicationOfZeroIntegersShouldReturnZero() {
@@ -92,7 +103,7 @@
       </google-codelab-step>
     
       <google-codelab-step label="Basic JUnit code construction" duration="10">
-        <h2 is-upgraded>5.1. JUnit annotations </h2>
+        <h2 is-upgraded>6.1. JUnit annotations </h2>
 <p>JUnit 4.x uses annotations to mark methods as test methods and to configure them. The following table gives an overview of the most important annotations in JUnit.  </p>
 <h3 is-upgraded>Table 1. Annotations </h3>
 <table>
@@ -124,7 +135,7 @@
 </td><td colspan="1" rowspan="1"><p> Ignores the test method. This is useful when the underlying code has been changed and the test case has not yet been adapted. Or if the execution time of this test is too long to be included. It is best practice to provide the optional description, why the test is disabled. </p>
 </td></tr>
 </table>
-<h2 is-upgraded>5.2. Assert Statements </h2>
+<h2 is-upgraded>6.2. Assert Statements </h2>
 <p>JUnit provides static methods to test for certain conditions via the Assert<code>class. These assert statements typically start with</code>assert . They allow you to specify the error message, the expected and the actual result. An assertion method compares the actual value returned by a test to the expected value. It throws an AssertionException if the comparison fails.  The following table gives an overview of these methods. Parameters in [] brackets are optional and of type String.  </p>
 <h3 is-upgraded>Table 2. Methods to assert test results </h3>
 <table>
@@ -159,7 +170,7 @@
 </td><td colspan="1" rowspan="1"><p> Checks that both variables refer to different objects.   </p>
 </td></tr>
 </table>
-<h2 is-upgraded>5.3 JUnit Methods: </h2>
+<h2 is-upgraded>6.3 JUnit Methods: </h2>
 <p>You encounter 3 new methods provided by JUnit Framework:  </p>
 <h3 is-upgraded>Table 3. More Methods provided by JUnit Framework </h3>
 <table>
@@ -190,7 +201,7 @@
         <ul>
 <li>You can find the package for <strong>Unit Tests</strong> case written in the package test-&gt; java -&gt; com.example.testapplication (LogicUnitTest.java) </li>
 <li>You can find the package for <strong>Mockito Tests</strong> in test -&gt; java -&gt; com.example.testapplication.MockitoTest.java </li>
-<li>You can find the package for <strong>Instrumentation Testing</strong> (Mockito) androidTest -&gt; java -&gt; com.example.testapplication     </li>
+<li>You can find the package for <strong>Instrumentation Testing</strong> (Mockito) androidTest -&gt; java -&gt; com.example.testapplication    </li>
 </ul>
 
 

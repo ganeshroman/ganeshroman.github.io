@@ -29,7 +29,7 @@ Duration: 0:03:00
 
 
 
-## The purpose of Software Tests
+## Why Software Tests?
 Duration: 0:04:00
 
 ### 2.1. Software Tests?
@@ -52,6 +52,7 @@ This description focuses on JUnit.
 
 ## Testing Terminology
 Duration: 0:010:00
+
 ### 3.1. Code (or application) under test
 The code which is tested is typically called the code under test. If you are testing an application, this is called the application under test.
 
@@ -86,23 +87,51 @@ If you are testing algorithms or system functionality, in most cases you may wan
 
 
 
+## Automate UI Tests
+Duration: 0:05:00
+
+### Define
+Testing user interactions helps ensure users do not encounter unexpected results or have a poor experience when interacting with your app. You should get into the habit of creating user interface (UI) tests if you need to verify that the UI of your app is functioning correctly.
+
+
+### Instrumented UI Tests in Android Studio
+To run instrumented UI tests using Android Studio, you implement your test code in a separate Android test folder  `src/androidTest/java`. 
+
+#### Jetpack Frameworks
+Jetpack includes various frameworks that provide APIs for writing UI tests
+
+</br>
+**Espresso Testing Framework**
+Writing UI tests to simulate user interactions with Views within a single target app. A key benefit of using Espresso is that it provides automatic synchronization of test actions with the UI of the app you are testing. Espresso detects when the main thread is idle, so it is able to run your test commands at the appropriate time, improving the reliability of your tests.
+
+</br>
+**Jetpack Compose**
+To launch and interact with Compose screens and components. Interactions with Compose elements are synchronized with tests and have complete control over time, animations and recompositions.
+
+</br>
+**UI Automator**
+UI testing framework suitable for cross app functional UI testing across system and installed apps. The UI Automator APIs allows you to perform operations such as opening the Settings menu or the app launcher on a test device.
+
+</br>
+**Roboelectric**
+Lets you create local tests that run on your workstation or continuous integration environment in a regular JVM, instead of on an emulator or device. It can use Espresso or Compose testing APIs to interact with UI components.
 
 
 
 
 ## Using JUnit
 Duration: 0:07:00
-### 4.1. The JUnit framework
+### 5.1. The JUnit framework
 JUnit in version 4.x is a test framework which uses annotations to identify methods that specify a test. The main websites for JUnit are the JUnit homepage (http://junit.org/) and the Github project page (https://github.com/junit-team/junit).
 
-### 4.2. How to define a test in JUnit?
+### 5.2. How to define a test in JUnit?
 A JUnit test is a method contained in a class which is only used for testing. This is called a Test class. To write a JUnit 4 test with the you annotate a method with the @org.junit.Test annotation.
 
 This method executes the code under test. You use an assert method, provided by JUnit or another assert framework, to check an expected result versus the actual result. These method calls are typically called asserts or assert statements.
 
 You should provide meaningful messages in assert statements. That makes it easier for the user to identify and fix the problem. This is especially true if someone looks at the problem, who did not write the code under test or the test code.
 
-### 4.3. Example JUnit test
+### 5.3. Example JUnit test
 The following code shows a JUnit test. This test assumes that the MyClass class exists and has a multiply(int, init) method.
 
 ```java
@@ -132,7 +161,7 @@ public class MyTests {
 
 ## Basic JUnit code construction
 Duration: 0:10:00
-### 5.1. JUnit annotations
+### 6.1. JUnit annotations
 JUnit 4.x uses annotations to mark methods as test methods and to configure them. The following table gives an overview of the most important annotations in JUnit.
 
 #### Table 1. Annotations
@@ -152,7 +181,7 @@ JUnit 4.x uses annotations to mark methods as test methods and to configure them
 </table>
 
 
-### 5.2. Assert Statements
+### 6.2. Assert Statements
 JUnit provides static methods to test for certain conditions via the Assert`class. These assert statements typically start with `assert . They allow you to specify the error message, the expected and the actual result. An assertion method compares the actual value returned by a test to the expected value. It throws an AssertionException if the comparison fails.
 
 The following table gives an overview of these methods. Parameters in [] brackets are optional and of type String.
@@ -174,7 +203,7 @@ The following table gives an overview of these methods. Parameters in [] bracket
 
 </table>
 
-### 5.3 JUnit Methods:
+### 6.3 JUnit Methods:
 You encounter 3 new methods provided by JUnit Framework:
 
 #### Table 3. More Methods provided by JUnit Framework
@@ -202,7 +231,6 @@ Duration: 0:03:00
 - You can find the package for **Unit Tests** case written in the package test-> java -> com.example.testapplication (LogicUnitTest.java)
 - You can find the package for **Mockito Tests** in test -> java -> com.example.testapplication.MockitoTest.java
 - You can find the package for **Instrumentation Testing** (Mockito) androidTest -> java -> com.example.testapplication
-
 
 
 
