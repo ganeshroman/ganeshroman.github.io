@@ -588,6 +588,11 @@ progress {
   height: auto;
 }
 
+.img-intro {
+  max-width: 100%;
+  height: 100%;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
